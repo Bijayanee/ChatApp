@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
               labelText: 'Enter Email', 
               textInputType: TextInputType.emailAddress,
             ),
-            
+            SizedBox(),
             TextFieldWidget(
               textEditingController: passwordController, 
               labelText: 'Enter Password', 
