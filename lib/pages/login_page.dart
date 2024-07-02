@@ -15,8 +15,13 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      body: SafeArea(
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -26,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
               labelText: 'Enter Email', 
               textInputType: TextInputType.emailAddress,
             ),
-            SizedBox(),
+            SizedBox(height: screenHeight*0.02,),
             TextFieldWidget(
               textEditingController: passwordController, 
               labelText: 'Enter Password', 
@@ -37,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Text('Login'),
             ),
           ],
-        ), 
+        ),
       ),
     );
   }
