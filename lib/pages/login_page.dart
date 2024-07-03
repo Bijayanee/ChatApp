@@ -37,9 +37,12 @@ class _LoginPageState extends State<LoginPage> {
               labelText: 'Enter Password', 
               textInputType: TextInputType.visiblePassword
             ),
-            ElevatedButton(
-              onPressed: () {}, 
-              child: Text('Login'),
+            SizedBox(
+              width: screenWidth/1.5,
+              child: ElevatedButton(
+                onPressed: () {}, 
+                child: Text('Login'),
+              ),
             ),
           ],
         ),
