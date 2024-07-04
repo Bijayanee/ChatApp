@@ -1,20 +1,21 @@
-import 'package:chatapp/pages/signup_page.dart';
+import 'package:chatapp/pages/login_page.dart';
 import 'package:chatapp/widget/textfield.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
 
-  signin(){
+  signup(){
 
   }
 
@@ -46,16 +47,23 @@ class _LoginPageState extends State<LoginPage> {
               isPass: true,
             ),
             SizedBox(height: screenHeight*0.02,),
+            TextFieldWidget(
+              textEditingController: confirmPasswordController, 
+              labelText: 'Enter Confirm Password', 
+              textInputType: TextInputType.visiblePassword,
+              isPass: true,
+            ),
+            SizedBox(height: screenHeight*0.02,),
             SizedBox(
               width: screenWidth/1.5,
               child: ElevatedButton(
-                onPressed: () => signin, 
+                onPressed: () => signup, 
                 child: Text('Login'),
               ),
             ),
             SizedBox(height: screenHeight*0.02,),
             TextButton(onPressed: () {
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignUpPage()));
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
             }, child: Text('sign up here')),
           ],
         ),
