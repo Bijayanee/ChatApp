@@ -1,6 +1,8 @@
 import 'package:chatapp/pages/signup_page.dart';
+import 'package:chatapp/services/auth_service.dart';
 import 'package:chatapp/widget/textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,8 +16,18 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  signin(){
+  void signin() async{
+    // get the auth service
+    final authService = Provider.of<AuthService>(context, listen: false);
 
+    try {
+      await authService.signInWithEmailandPassword(
+        emailController.text, 
+        passwordController.text,
+      );
+    } catch(e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+    }
   }
 
   @override

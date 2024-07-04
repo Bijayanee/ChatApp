@@ -1,6 +1,9 @@
 import 'package:chatapp/pages/login_page.dart';
+import 'package:chatapp/services/auth_service.dart';
 import 'package:chatapp/widget/textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -15,8 +18,27 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
 
-  signup(){
-
+  void signup() async{
+    if (passwordController.text != confirmPasswordController.selection) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Passwords do not match!'),
+        ),
+      );
+      return;
+    }
+    // get auth service
+    final authService = Provider.of<AuthService>(context, listen: false);
+    try  {
+      await authService.signUpWithEmailandPassword(
+        emailController.text, 
+        passwordController.text,
+      );
+    } catch(e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.toString())),
+      );
+    }
   }
 
   @override
