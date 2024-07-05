@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Home Page'),
         actions: [
+          // sign out button
           IconButton(
             onPressed: signOut, 
             icon: Icon(Icons.logout),

@@ -54,7 +54,7 @@ class _SignUpPageState extends State<SignUpPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Sign-In', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+            Text('Sign-Up', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
             SizedBox(height: screenHeight*0.05,),
             TextFieldWidget(
               textEditingController: emailController, 
@@ -80,13 +80,13 @@ class _SignUpPageState extends State<SignUpPage> {
               width: screenWidth/1.5,
               child: ElevatedButton(
                 onPressed: () => signup, 
-                child: Text('Login'),
+                child: Text('Sign Up'),
               ),
             ),
             SizedBox(height: screenHeight*0.02,),
             TextButton(onPressed: () {
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
-            }, child: Text('sign up here')),
+            }, child: Text('sign in here')),
           ],
         ),
       ),
