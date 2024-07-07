@@ -12,23 +12,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final user = context.read<FirebaseAuthMethods>().user;
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(user.email!),
-            Text(user.uid),
-            const SizedBox(
-              height: 100,
-            ),
-            CustomButton(
-                onPressed: () {
-                  context.read<FirebaseAuthMethods>().logoutUser(context);
-                },
-                text: "Logout")
-          ],
-        ),
-      ),
     );
   }
 }

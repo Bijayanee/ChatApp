@@ -48,6 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: CustomTextField(
               controller: passwordController,
               hintText: 'Enter your password',
+              isPass: true,
             ),
           ),
           const SizedBox(height: 20),
