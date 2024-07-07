@@ -3,8 +3,6 @@
 import 'package:chatapp/services/firebase_auth_methods.dart';
 import 'package:chatapp/widget/button.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_firebase_methods/services/firebase_auth_methods.dart';
-// import 'package:flutter_firebase_methods/widget/custom_button.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
